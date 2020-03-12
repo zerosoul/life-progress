@@ -34,8 +34,8 @@ const StyledWrapper = styled.div`
     }
     .num {
       position: absolute;
-      font-size: 0.8rem;
-      bottom: -1.2rem;
+      font-size: 0.6rem;
+      bottom: -1rem;
       right: 0;
       text-shadow: 0 0 18px #000;
       transform: translateX(50%);

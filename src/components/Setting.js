@@ -1,23 +1,44 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
 const StyledWrapper = styled.div`
-  position: fixed;
-
-  width: 100vw;
-  height: 100vh;
-  background: #fff;
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
-  z-index: 999;
-  background: rgba(0, 0, 0, 0.8);
-  backdrop-filter: blur(5px);
   .opts {
-    width: 16rem;
-    padding: 0.6rem 1rem;
+    width: 15rem;
     display: flex;
     flex-direction: column;
+
+    .input {
+      padding: 0.2rem 0.4rem;
+      margin-top: 0.4rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      label {
+        padding-right: 0.4rem;
+        font-size: 0.8rem;
+        &:after {
+          content: ':';
+        }
+      }
+      input,
+      select {
+        color: #000;
+        padding: 0.2rem 0.4rem;
+      }
+    }
+  }
+  .ok {
+    margin-top: 2rem;
+    color: #000;
+    cursor: pointer;
+    outline: none;
+    border: none;
+    padding: 0.4rem 0.8rem;
+    font-size: 1.2rem;
+    font-weight: 800;
+    border-radius: 4px;
   }
 `;
 const DEFAULT_SETTING = { sex: 'male', birth: '1989-03-22', year: 77 };
@@ -43,22 +64,25 @@ export default function Setting({ setting = DEFAULT_SETTING, updateSetting }) {
     <StyledWrapper>
       <div className="opts">
         <div className="input">
-          <span>生日</span>
-          <input onChange={handleChange} type="date" value={birth} name="birth" id="birth" />
-        </div>
-        <div className="input">
-          <span>性别</span>
+          <label htmlFor="sex">性别</label>
+
           <select name="sex" id="sex" value={sex} onChange={handleChange}>
             <option value="female">女</option>
             <option value="male">男</option>
           </select>
         </div>
         <div className="input">
-          <span>想活多久(年)</span>
+          <label htmlFor="birth">生日</label>
+          <input onChange={handleChange} type="date" value={birth} name="birth" id="birth" />
+        </div>
+        <div className="input">
+          <label htmlFor="year">想活多久(年)</label>
           <input onChange={handleChange} type="number" value={year} name="year" id="year" />
         </div>
       </div>
-      <button onClick={handleOk}>好了</button>
+      <button className="ok" onClick={handleOk}>
+        好了
+      </button>
     </StyledWrapper>
   );
 }

@@ -2,6 +2,8 @@ import React from 'react';
 import dayjs from 'dayjs';
 import StyledWrapper from './styled';
 import ParticlesBackground from '../../components/ParticlesBackground';
+import Header from '../../components/Header';
+import SettingButton from '../../components/SettingButton';
 import InfoModal from '../../components/InfoModal';
 import ProgressBar from '../../components/ProgressBar';
 import Setting from '../../components/Setting';
@@ -32,10 +34,16 @@ export default function Home() {
   return (
     <StyledWrapper>
       <ParticlesBackground />
-      {!setting && <Setting setting={setting} updateSetting={updateSetting} />}
-      <div className="wrapper">
-        {setting && <ProgressBar dayInLife={dayInLife} sex={sex} percent={percent} />}
+      <Header />
+      <div className={`${setting ? '' : 'setting'} wrapper`}>
+        <div className="card front">
+          <ProgressBar dayInLife={dayInLife} sex={sex} percent={percent} />
+        </div>
+        <div className={`card back`}>
+          <Setting setting={setting} updateSetting={updateSetting} />
+        </div>
       </div>
+      {setting && <SettingButton updateSetting={updateSetting} />}
       <InfoModal />
     </StyledWrapper>
   );
