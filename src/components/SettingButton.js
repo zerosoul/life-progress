@@ -6,18 +6,17 @@ import ImageSetting from '../assets/img/setting.svg';
 const StyledWrapper = styled(StyledButton)`
   z-index: 998;
   position: fixed;
-  right: 2.5rem;
+  right: 3.4rem;
   bottom: 0.5rem;
-  padding: 0.8rem;
   margin-right: 0.5rem;
   background-image: url(${ImageSetting});
 `;
 
-export default function Setting({ updateSetting }) {
+export default function Setting({ setVisible }) {
   return (
     <StyledWrapper
       onClick={() => {
-        updateSetting(undefined);
+        setVisible();
       }}
     ></StyledWrapper>
   );

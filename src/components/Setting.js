@@ -49,18 +49,30 @@ const StyledWrapper = styled.div`
   }
 `;
 const DEFAULT_SETTING = { sex: 'male', birth: '1989-03-22', year: 77 };
-
+const maxDate = new Date().toISOString().split('T')[0];
 export default function Setting({ setting = DEFAULT_SETTING, updateSetting }) {
   const [currSetting, setCurrSetting] = useState(setting);
   const { birth, sex, year } = currSetting || {};
   const handleOk = () => {
     updateSetting(currSetting);
   };
+  const handleBlur = evt => {
+    const { target } = evt;
+    let yearSpan = new Date().getFullYear() - new Date(birth).getFullYear();
+    if (Number(target.value) < yearSpan) {
+      setCurrSetting(prev => {
+        prev.year = yearSpan;
+        return { ...prev };
+      });
+    }
+  };
   const handleChange = evt => {
     console.log({ evt });
     const { target } = evt;
     console.log({ target });
     setCurrSetting(prev => {
+      // 最小不能小于已经活过的年份
+
       prev[target.name] = target.value;
       console.log({ prev });
 
@@ -80,13 +92,24 @@ export default function Setting({ setting = DEFAULT_SETTING, updateSetting }) {
         </div>
         <div className="input">
           <label htmlFor="birth">生日</label>
-          <input onChange={handleChange} type="date" value={birth} name="birth" id="birth" />
+          <input
+            min="1899-01-01"
+            max={maxDate}
+            onChange={handleChange}
+            type="date"
+            value={birth}
+            name="birth"
+            id="birth"
+          />
         </div>
         <div className="input">
           <label htmlFor="year">想活多久(年)</label>
           <input
+            min={1}
+            max={120}
             className="year"
             onChange={handleChange}
+            onBlur={handleBlur}
             type="number"
             value={year}
             name="year"

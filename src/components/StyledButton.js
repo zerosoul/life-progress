@@ -1,10 +1,12 @@
 import styled from 'styled-components';
 
 const StyledButton = styled.button`
-  background-size: 1rem 1rem;
+  background-size: 1.6rem 1.6rem;
   background-position: center;
   background-repeat: no-repeat;
-  background-color: rgba(22, 22, 22, 0.4);
+  background-color: rgba(255, 222, 222, 0.6);
+  box-sizing: border-box;
+  padding: 1.2rem;
   cursor: pointer;
   outline: none;
   border: none;

@@ -3,8 +3,8 @@ import dayjs from 'dayjs';
 import StyledWrapper from './styled';
 import ParticlesBackground from '../../components/ParticlesBackground';
 import Header from '../../components/Header';
-import SettingButton from '../../components/SettingButton';
-import InfoModal from '../../components/InfoModal';
+import Aside from '../../containers/Aside';
+
 import ProgressBar from '../../components/ProgressBar';
 import Setting from '../../components/Setting';
 import useSetting from './useSetting';
@@ -27,15 +27,17 @@ function getDay(birth) {
   return d;
 }
 export default function Home() {
-  const { setting, updateSetting } = useSetting();
+  const { setting, visible: settingVisible, updateSetting, setSettingVisible } = useSetting();
   const { birth, sex, year } = setting || {};
   const percent = getPercent(birth, year);
   const dayInLife = getDay(birth);
+  console.log({ settingVisible });
+
   return (
     <StyledWrapper>
       <ParticlesBackground />
       <Header />
-      <div className={`${setting ? '' : 'setting'} wrapper`}>
+      <div className={`${settingVisible ? 'setting' : ''} wrapper`}>
         <div className="card front">
           <ProgressBar dayInLife={dayInLife} sex={sex} percent={percent} />
         </div>
@@ -43,8 +45,7 @@ export default function Home() {
           <Setting setting={setting} updateSetting={updateSetting} />
         </div>
       </div>
-      {setting && <SettingButton updateSetting={updateSetting} />}
-      <InfoModal />
+      <Aside settingVisible={settingVisible} setSettingVisible={setSettingVisible} />
     </StyledWrapper>
   );
 }

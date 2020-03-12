@@ -19,7 +19,6 @@ const InfoButton = styled(StyledButton)`
   position: fixed;
   right: 0.5rem;
   bottom: 0.5rem;
-  padding: 0.8rem;
   margin-right: 0.5rem;
   background-image: url(${ImageInfo});
   &.close {
@@ -33,7 +32,7 @@ const StyledModal = styled.section`
   box-shadow: 0 0 8px black;
   position: fixed;
   right: 0.5rem;
-  bottom: 2.5rem;
+  bottom: 3rem;
   background: rgba(2, 2, 2, 0.6);
   padding: 1rem;
   animation: ${AniSlideLeft} 1s;

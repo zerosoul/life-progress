@@ -5,7 +5,6 @@ const GlobalStyle = createGlobalStyle`
   ${reset}
   *{
     box-sizing:border-box;
-    user-select:none;
     outline:none;
     -webkit-text-size-adjust: none;
     -webkit-tap-highlight-color: rgba(0,0,0,0);
@@ -14,7 +13,7 @@ const GlobalStyle = createGlobalStyle`
   html{
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    font-family:"Fangzheng ZY", "Hiragino Sans GB", "Heiti SC", "Microsoft YaHei", "WenQuanYi Micro Hei";
+    font-family:"Heiti SC", "Microsoft YaHei", "WenQuanYi Micro Hei";
   }
   body{
     -webkit-overflow-scrolling: touch;
@@ -33,17 +32,17 @@ const GlobalStyle = createGlobalStyle`
 
   @media screen and (min-width: 320px){
       html {
-          font-size: 12px;
+          font-size: 14px;
       }
   }
   @media screen and (min-width: 375px){
       html {
-          font-size: 14px;
+          font-size: 16px;
       }
   }
   @media screen and (min-width: 480px){
       html {
-          font-size: 20px;
+          font-size: 22px;
       }
   }
   @media screen and (min-width: 768px){
