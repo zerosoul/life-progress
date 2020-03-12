@@ -5,7 +5,7 @@ const StyledWrapper = styled.div`
   flex-direction: column;
   align-items: center;
   .opts {
-    width: 15rem;
+    width: 13rem;
     display: flex;
     flex-direction: column;
 
@@ -24,14 +24,21 @@ const StyledWrapper = styled.div`
       }
       input,
       select {
+        outline: none;
+        border: none;
+        border-radius: 4px;
         color: #000;
         padding: 0.2rem 0.4rem;
+        &.year {
+          width: 3rem;
+        }
       }
     }
   }
   .ok {
     margin-top: 2rem;
     color: #000;
+    background-color: #fff;
     cursor: pointer;
     outline: none;
     border: none;
@@ -45,7 +52,7 @@ const DEFAULT_SETTING = { sex: 'male', birth: '1989-03-22', year: 77 };
 
 export default function Setting({ setting = DEFAULT_SETTING, updateSetting }) {
   const [currSetting, setCurrSetting] = useState(setting);
-  const { birth, sex, year } = currSetting;
+  const { birth, sex, year } = currSetting || {};
   const handleOk = () => {
     updateSetting(currSetting);
   };
@@ -77,11 +84,18 @@ export default function Setting({ setting = DEFAULT_SETTING, updateSetting }) {
         </div>
         <div className="input">
           <label htmlFor="year">想活多久(年)</label>
-          <input onChange={handleChange} type="number" value={year} name="year" id="year" />
+          <input
+            className="year"
+            onChange={handleChange}
+            type="number"
+            value={year}
+            name="year"
+            id="year"
+          />
         </div>
       </div>
       <button className="ok" onClick={handleOk}>
-        好了
+        开始计算
       </button>
     </StyledWrapper>
   );

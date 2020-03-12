@@ -17,7 +17,7 @@ export default function Setting({ updateSetting }) {
   return (
     <StyledWrapper
       onClick={() => {
-        updateSetting(null);
+        updateSetting(undefined);
       }}
     ></StyledWrapper>
   );
