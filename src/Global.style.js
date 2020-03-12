@@ -1,6 +1,6 @@
 import { createGlobalStyle } from 'styled-components';
 import reset from 'styled-reset';
-
+import BgImage from './assets/img/bg.jpg';
 const GlobalStyle = createGlobalStyle`
   ${reset}
   *{
@@ -9,7 +9,7 @@ const GlobalStyle = createGlobalStyle`
     outline:none;
     -webkit-text-size-adjust: none;
     -webkit-tap-highlight-color: rgba(0,0,0,0);
-    color:#ffffeb;
+    color:#fff;
   }
   html{
     -webkit-font-smoothing: antialiased;
@@ -25,7 +25,10 @@ const GlobalStyle = createGlobalStyle`
   }
   #root{
     min-height:100vh;
-    background-image:linear-gradient(135deg, rgb(96, 108, 136) 0%, rgb(63, 76, 107) 100%);
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-image:url(${BgImage});
   }
 
   @media screen and (min-width: 320px){
