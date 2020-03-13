@@ -36,8 +36,8 @@ export default function Home() {
   return (
     <StyledWrapper>
       <ParticlesBackground />
-      <Header />
       <div className={`${settingVisible ? 'setting' : ''} wrapper`}>
+        <Header />
         <div className="card front">
           <ProgressBar dayInLife={dayInLife} sex={sex} percent={percent} />
         </div>

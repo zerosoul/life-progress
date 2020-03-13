@@ -1,5 +1,10 @@
 import styled from 'styled-components';
-
+import {
+  AniFadeInDown,
+  AniFadeInUp,
+  AniFadeOutDown,
+  AniFadeOutUp
+} from '../../components/animates';
 const StyledWrapper = styled.div`
   display: flex;
   flex-direction: column;
@@ -8,35 +13,30 @@ const StyledWrapper = styled.div`
   height: 100vh;
   .wrapper {
     position: relative;
-    transform-style: preserve-3d;
+    margin-top: -18rem;
     .card {
       background: rgba(0, 0, 0, 0.4);
       backdrop-filter: blur(5px);
       border-radius: 1rem;
       position: absolute;
-      top: 0;
+      top: 5rem;
       left: 50%;
-      backface-visibility: hidden;
-      transition: 0.5s;
+      transform: translateX(-50%);
       &.front {
         padding: 4rem 2.5rem 5rem 2.5rem;
-
         box-shadow: 0 0 8px black;
-        transform: translateX(-50%) rotateX(0deg);
+        animation: ${AniFadeInDown} 1s forwards;
       }
       &.back {
         padding: 2rem 1rem;
-        visibility: hidden;
-        transform: translateX(-50%) rotateX(180deg);
+        animation: ${AniFadeOutDown} 1s forwards;
       }
     }
-    &.setting .front {
-      transform: translateX(-50%) rotateX(-180deg);
-      visibility: hidden;
+    &.setting .card.front {
+      animation: ${AniFadeOutUp} 1s forwards;
     }
-    &.setting .back {
-      visibility: visible;
-      transform: translateX(-50%) rotateX(0deg);
+    &.setting .card.back {
+      animation: ${AniFadeInUp} 1s forwards;
     }
   }
 `;

@@ -3,8 +3,6 @@ import styled from 'styled-components';
 const StyledWrapper = styled.header`
   font-size: 2rem;
   font-weight: 800;
-  margin-bottom: 2rem;
-  margin-top: -16rem;
   text-shadow: 0 0 16px black;
 `;
 export default function Header() {
