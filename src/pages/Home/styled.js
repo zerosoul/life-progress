@@ -13,13 +13,13 @@ const StyledWrapper = styled.div`
   height: 100vh;
   .wrapper {
     position: relative;
-    margin-top: -18rem;
+    margin-top: -20rem;
     .card {
       background: rgba(0, 0, 0, 0.4);
       backdrop-filter: blur(5px);
       border-radius: 1rem;
       position: absolute;
-      top: 5rem;
+      top: 4rem;
       left: 50%;
       transform: translateX(-50%);
       &.front {

@@ -103,7 +103,7 @@ export default function Setting({ setting = DEFAULT_SETTING, updateSetting }) {
           />
         </div>
         <div className="input">
-          <label htmlFor="year">想活多久(年)</label>
+          <label htmlFor="year">活多久(年)</label>
           <input
             min={1}
             max={120}

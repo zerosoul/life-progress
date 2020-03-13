@@ -17,13 +17,14 @@ const GlobalStyle = createGlobalStyle`
   }
   body{
     -webkit-overflow-scrolling: touch;
-    overflow:scroll;
+
     margin:0 auto;
     min-height:100vh;
     position: relative;
   }
   #root{
     min-height:100vh;
+    overflow:hidden;
     background-size: cover;
     background-position: center center;
     background-repeat: no-repeat;
