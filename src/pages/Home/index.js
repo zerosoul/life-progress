@@ -17,7 +17,7 @@ function getPercent(birth, year) {
 
   let percentNum = Math.floor((msPassed / msTotal) * 100);
   console.log({ msPassed, msTotal, percentNum });
-  return percentNum;
+  return percentNum > 100 ? 100 : percentNum;
 }
 function getDay(birth) {
   if (!birth) return;

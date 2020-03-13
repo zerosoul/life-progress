@@ -48,9 +48,8 @@ const StyledWrapper = styled.div`
     border-radius: 4px;
   }
 `;
-const DEFAULT_SETTING = { sex: 'male', birth: '1989-03-22', year: 77 };
 const maxDate = new Date().toISOString().split('T')[0];
-export default function Setting({ setting = DEFAULT_SETTING, updateSetting }) {
+export default function Setting({ setting = {}, updateSetting }) {
   const [currSetting, setCurrSetting] = useState(setting);
   const { birth, sex, year } = currSetting || {};
   const handleOk = () => {
