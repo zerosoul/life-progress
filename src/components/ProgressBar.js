@@ -5,12 +5,13 @@ const AniFlash = keyframes`
   from  {opacity:0.4;}
   to {opacity:1;}
 `;
-
 const StyledWrapper = styled.div`
   position: relative;
   width: 16rem;
   height: 2rem;
-  background: #fff;
+  background: rgba(19, 17, 17, 0.4);
+  box-shadow: 0 0 5px #d6caca;
+  border-radius: 4px;
   .status {
     position: absolute;
     top: -2rem;
@@ -27,10 +28,10 @@ const StyledWrapper = styled.div`
   }
   .progress {
     position: relative;
-    background: ${({ bgColor }) => bgColor};
     transition: all 0.5s;
     height: 100%;
-
+    border-radius: 4px 0 0 4px;
+    background: ${({ bgColor }) => bgColor};
     .walk {
       position: absolute;
       font-size: 2.4rem;
@@ -42,26 +43,6 @@ const StyledWrapper = styled.div`
       animation-fill-mode: both;
       animation-direction: alternate;
     }
-    .num {
-      position: absolute;
-      font-size: 0.6rem;
-      bottom: -1rem;
-      right: 0;
-      text-shadow: 0 0 18px #000;
-      transform: translateX(50%);
-    }
-  }
-  .tip {
-    margin-top: 2rem;
-    font-size: 1rem;
-    color: #ddd;
-    .num {
-      text-shadow: 0 0 18px #000;
-      color: ${({ bgColor }) => bgColor};
-      font-weight: 800;
-      padding: 0 0.2rem;
-      font-size: 1.4rem;
-    }
   }
 `;
 const WalkPerson = {
@@ -69,17 +50,13 @@ const WalkPerson = {
   female: '🚶‍♀'
 };
 
-export default function ProgressBar({ dayInLife = 1, percent = 20, sex = 'male' }) {
+export default function ProgressBar({ percent = 20, sex = 'male' }) {
   return (
     <StyledWrapper bgColor={getColor(percent)}>
       <i className="status baby">👶</i>
       <i className="status death">👻</i>
       <p style={{ width: `${percent}%` }} className="progress">
         <i className="walk">{WalkPerson[sex]}</i>
-        <i className="num">{`${percent}%`}</i>
-      </p>
-      <p className="tip">
-        今天是你生命中的第<span className="num">{dayInLife}</span>天
       </p>
     </StyledWrapper>
   );

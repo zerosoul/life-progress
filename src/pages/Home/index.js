@@ -6,6 +6,7 @@ import Header from '../../components/Header';
 import Aside from '../../containers/Aside';
 
 import ProgressBar from '../../components/ProgressBar';
+import Tip from '../../components/Tip';
 import Setting from '../../components/Setting';
 import useSetting from './useSetting';
 
@@ -40,6 +41,7 @@ export default function Home() {
         <Header />
         <div className="card front">
           <ProgressBar dayInLife={dayInLife} sex={sex} percent={percent} />
+          {!settingVisible && <Tip birth={birth} dayInLife={dayInLife} percent={percent} />}
         </div>
         <div className={`card back`}>
           <Setting setting={setting} updateSetting={updateSetting} />

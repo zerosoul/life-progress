@@ -23,7 +23,7 @@ const StyledWrapper = styled.div`
       left: 50%;
       transform: translateX(-50%);
       &.front {
-        padding: 4rem 2.5rem 5rem 2.5rem;
+        padding: 4rem 2.5rem 2rem 2.5rem;
         box-shadow: 0 0 8px black;
         animation: ${AniFadeInDown} 1s forwards;
       }
