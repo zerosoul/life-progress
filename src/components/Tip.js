@@ -40,14 +40,14 @@ export default function Tip({ birth, dayInLife = 1, percent = 0 }) {
         <em>{birth}</em>
       </p>
       <p style={{ animationDelay: '2s' }}>这一天，你来到了这个世界...</p>
-      <p style={{ animationDelay: '4.5s' }}>
+      <p style={{ animationDelay: '4s' }}>
         今天是你生命中的第<em>{dayInLife}</em>天
       </p>
-      <p style={{ animationDelay: '8s' }}>
+      <p style={{ animationDelay: '6s' }}>
         <em>{percent}%</em>的时光已流逝
       </p>
-      <p style={{ animationDelay: '10.5s' }}>在这个世界，你过得还好吗</p>
-      <p style={{ animationDelay: '11s' }}>...</p>
+      <p style={{ animationDelay: '7.5s' }}>在这个世界，你过得还好吗</p>
+      <p style={{ animationDelay: '8s' }}>...</p>
     </StyledWrapper>
   );
 }

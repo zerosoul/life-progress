@@ -47,4 +47,19 @@ const AniFadeInUp = keyframes`
     transform: translate3d(-50%, 0, 0);
   }
 `;
-export { AniFadeInDown, AniFadeInUp, AniFadeOutDown, AniFadeOutUp };
+const AniProgress = keyframes`
+  0% {
+    width: 0;
+    opacity: 0.1;
+  }
+  30% {
+    width: 0;
+    opacity: 0.5;
+  }
+  100% {
+    width: 100%;
+    opacity: 0;
+  }
+`;
+
+export { AniProgress, AniFadeInDown, AniFadeInUp, AniFadeOutDown, AniFadeOutUp };

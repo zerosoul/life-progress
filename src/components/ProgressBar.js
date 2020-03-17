@@ -1,6 +1,6 @@
 import React from 'react';
 import styled, { keyframes } from 'styled-components';
-
+import { AniProgress } from './animates';
 const AniFlash = keyframes`
   from  {opacity:0.4;}
   to {opacity:1;}
@@ -32,6 +32,19 @@ const StyledWrapper = styled.div`
     height: 100%;
     border-radius: 4px 0 0 4px;
     background: ${({ bgColor }) => bgColor};
+    position: relative;
+    &:before {
+      content: '';
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      background: #fff;
+      border-radius: 4px 0 0 4px;
+      opacity: 0;
+      animation: ${AniProgress} 2s cubic-bezier(0.23, 1, 0.32, 1) infinite;
+    }
     .walk {
       position: absolute;
       font-size: 2.4rem;
