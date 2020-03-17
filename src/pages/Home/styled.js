@@ -13,7 +13,7 @@ const StyledWrapper = styled.div`
   height: 100vh;
   .wrapper {
     position: relative;
-    margin-top: -20rem;
+    margin-top: -22rem;
     .card {
       background: rgba(0, 0, 0, 0.4);
       backdrop-filter: blur(5px);
