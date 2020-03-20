@@ -37,8 +37,8 @@ const StyledWrapper = styled.div`
   }
   .ok {
     margin-top: 2rem;
-    color: #000;
-    background-color: #fff;
+    color: #fff;
+    background-color: rgba(2, 2, 2, 0.3);
     cursor: pointer;
     outline: none;
     border: none;
@@ -58,9 +58,18 @@ export default function Setting({ setting = {}, updateSetting }) {
   const handleBlur = evt => {
     const { target } = evt;
     let yearSpan = new Date().getFullYear() - new Date(birth).getFullYear();
-    if (Number(target.value) < yearSpan) {
+    let currNum = Number(target.value);
+    if (currNum < yearSpan) {
       setCurrSetting(prev => {
         prev.year = yearSpan;
+        return { ...prev };
+      });
+    }
+    // 最多只能活150年
+    if (currNum > 150) {
+      alert('最大只能设置150年，可以了少年~');
+      setCurrSetting(prev => {
+        prev.year = 150;
         return { ...prev };
       });
     }

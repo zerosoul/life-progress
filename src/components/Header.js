@@ -5,10 +5,23 @@ const StyledWrapper = styled.header`
   font-weight: 800;
   text-shadow: 0 0 16px black;
   letter-spacing: 0.2rem;
+  position: relative;
+  &:after {
+    content: '';
+    background-color: rgba(2, 2, 2, 0.5);
+    position: absolute;
+    top: -1.4rem;
+    left: -5%;
+    width: 105%;
+    height: 1.6rem;
+    z-index: 1;
+  }
   .word {
     position: relative;
     text-shadow: 0 0 2px #b51717;
     &:after {
+      z-index: 2;
+      font-family: sans-serif;
       color: #ddd;
       letter-spacing: 0;
       text-transform: capitalize;
