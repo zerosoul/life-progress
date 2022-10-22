@@ -1,15 +1,17 @@
 import { lazy, Suspense } from 'react';
 import dayjs from 'dayjs';
-import StyledWrapper from './styled';
+import styled from 'styled-components';
+import { AniFadeInDown, AniFadeInUp, AniFadeOutDown, AniFadeOutUp } from './components/animates';
 
 import useSetting from './useSetting';
 
-const ParticlesBackground = lazy(() => import('../../components/ParticlesBackground'));
-const Header = lazy(() => import('../../components/Header'));
-const Setting = lazy(() => import('../../components/Setting'));
-const ProgressBar = lazy(() => import('../../components/ProgressBar'));
-const Tip = lazy(() => import('../../components/Tip'));
-const Aside = lazy(() => import('../../containers/Aside'));
+const ParticlesBackground = lazy(() => import('./components/ParticlesBackground'));
+const Header = lazy(() => import('./components/Header'));
+const Setting = lazy(() => import('./components/Setting'));
+const ProgressBar = lazy(() => import('./components/ProgressBar'));
+const Tip = lazy(() => import('./components/Tip'));
+const Aside = lazy(() => import('./containers/Aside'));
+
 function getPercent(birth, year) {
   if (!birth) return;
   let msPassed = new Date().getTime() - new Date(birth).getTime();
@@ -28,13 +30,46 @@ function getDay(birth) {
   return d;
 }
 const Loading = <div>loading...</div>;
-export default function Home() {
+const StyledWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  .wrapper {
+    position: relative;
+    margin-top: -22rem;
+    .card {
+      background: rgba(0, 0, 0, 0.4);
+      backdrop-filter: blur(5px);
+      border-radius: 1rem;
+      position: absolute;
+      top: 4rem;
+      left: 50%;
+      transform: translateX(-50%);
+      &.front {
+        padding: 4rem 2.5rem 2rem 2.5rem;
+        box-shadow: 0 0 8px black;
+        animation: ${AniFadeInDown} 1s forwards;
+      }
+      &.back {
+        padding: 2rem 1rem;
+        animation: ${AniFadeOutDown} 1s forwards;
+      }
+    }
+    &.setting .card.front {
+      animation: ${AniFadeOutUp} 1s forwards;
+    }
+    &.setting .card.back {
+      animation: ${AniFadeInUp} 1s forwards;
+    }
+  }
+`;
+function App() {
   const { setting, visible: settingVisible, updateSetting, setSettingVisible } = useSetting();
   const { birth, sex, year } = setting || {};
   const percent = getPercent(birth, year);
   const dayInLife = getDay(birth);
-  console.log({ settingVisible });
-
   return (
     <StyledWrapper>
       <Suspense fallback={Loading}>
@@ -55,3 +90,5 @@ export default function Home() {
     </StyledWrapper>
   );
 }
+
+export default App;

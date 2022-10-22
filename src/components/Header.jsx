@@ -8,9 +8,9 @@ const StyledWrapper = styled.header`
   position: relative;
   &:after {
     content: '';
-    background-color: rgba(2, 2, 2, 0.5);
+    /* background-color: rgba(2, 2, 2, 0.5); */
     position: absolute;
-    top: -1.4rem;
+    top: -1.8rem;
     left: -5%;
     width: 105%;
     height: 1.6rem;
@@ -18,17 +18,18 @@ const StyledWrapper = styled.header`
   }
   .word {
     position: relative;
-    text-shadow: 0 0 2px #b51717;
+    text-shadow: 0 1px 4px #000;
     &:after {
       z-index: 2;
       font-family: sans-serif;
       color: #ddd;
       letter-spacing: 0;
-      text-transform: capitalize;
+      text-shadow: 0 1px 4px #000;
+      /* text-transform: capitalize; */
       font-size: 1rem;
       content: attr(data-py);
       position: absolute;
-      top: -1.1rem;
+      top: -1.5rem;
       left: 50%;
       transform: translateX(-50%);
     }
@@ -37,29 +38,29 @@ const StyledWrapper = styled.header`
 const words = [
   {
     py: 'jiāo',
-    word: '生'
+    word: '生',
   },
   {
     py: 'lǜ',
-    word: '命'
+    word: '命',
   },
   {
     py: 'zhì',
-    word: '计'
+    word: '计',
   },
   {
     py: 'zào',
-    word: '算'
+    word: '算',
   },
   {
     py: 'qì',
-    word: '器'
-  }
+    word: '器',
+  },
 ];
 export default function Header() {
   return (
     <StyledWrapper>
-      {words.map(w => {
+      {words.map((w) => {
         return (
           <span key={w.py} className="word" data-py={w.py}>
             {w.word}
