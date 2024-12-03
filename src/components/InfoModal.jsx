@@ -3,9 +3,6 @@ import React, { useState } from 'react';
 import styled, { keyframes } from 'styled-components';
 import GitHubButton from 'react-github-btn';
 import StyledButton from './StyledButton';
-import ImageInfo from '../assets/img/info.svg';
-import ImageClose from '../assets/img/close.svg';
-import ImageReward from '../assets/img/reward.jpg';
 const AniSlideLeft = keyframes`
 from{
   transform:translateX(100%)
@@ -20,9 +17,9 @@ const InfoButton = styled(StyledButton)`
   right: 0.5rem;
   bottom: 0.5rem;
   margin-right: 0.5rem;
-  background-image: url(${ImageInfo});
+  background-image: url('/img/info.svg');
   &.close {
-    background-image: url(${ImageClose});
+    background-image: url('/img/close.svg');
   }
 `;
 const StyledModal = styled.section`
@@ -58,7 +55,7 @@ const StyledModal = styled.section`
 `;
 const Modal = () => (
   <StyledModal className="idleHide">
-    <img src={ImageReward} alt="reward" className="reward" />
+    <img src={'/img/reward.jpg'} alt="reward" className="reward" />
     <div className="code">
       代码开源：
       <GitHubButton
@@ -71,7 +68,7 @@ const Modal = () => (
     </div>
     <div className="copyright">
       <a rel="noopener noreferrer" target="_blank" href="http://www.beian.miit.gov.cn/">
-        京ICP备16015459号-1
+        京 ICP 备 16015459 号 -1
       </a>
       <span> Copyright © {new Date().getFullYear()} By </span>
       <a rel="noopener noreferrer" href="https://yangerxiao.com" target="_blank">
@@ -83,7 +80,7 @@ const Modal = () => (
 export default function InfoModal() {
   const [visible, setVisible] = useState(false);
   const handleInfoClick = () => {
-    setVisible(prev => !prev);
+    setVisible((prev) => !prev);
   };
 
   return (

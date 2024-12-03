@@ -35,7 +35,7 @@ const StyledWrapper = styled.div`
 
 export default function Tip({ birth, dayInLife = 1, percent = 0 }) {
   return (
-    <StyledWrapper>
+    <StyledWrapper bgColor="transparent">
       <p style={{ animationDelay: '.5s' }}>
         <em>{birth}</em>
       </p>
