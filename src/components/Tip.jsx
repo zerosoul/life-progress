@@ -25,17 +25,17 @@ const StyledWrapper = styled.div`
     animation-fill-mode: both;
     em {
       text-shadow: 0 0 18px #000;
-      color: ${({ bgColor }) => bgColor};
-      font-weight: 800;
+      color: #fff;
+      font-weight: 900;
       padding: 0 0.2rem;
-      font-size: 1.2rem;
+      font-size: 1.4rem;
     }
   }
 `;
 
 export default function Tip({ birth, dayInLife = 1, percent = 0 }) {
   return (
-    <StyledWrapper bgColor="transparent">
+    <StyledWrapper>
       <p style={{ animationDelay: '.5s' }}>
         <em>{birth}</em>
       </p>
